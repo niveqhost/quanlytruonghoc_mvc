@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a, a:hover {
+    text-decoration: none !important;
+}
+
+/* ----- Override Bootstrap and Others Library -----*/
+.bootstrap-tagsinput {
+    min-width: 90%;
+}
+
+.bootstrap-tagsinput .tag {
+    background-color: #4e73df;
+}
+
+.topbar .navbar-search input {
+    width: 100%;
+    color: #00f;
+}
+/* ----- student list ----- */
+.my-student-list img {
+    width: 100%;
+    height: 120px;
+}
+
+.my-dropdown-sort-list ul.dropdown-menu{
+    border: 2px solid #000;
+}
+
+span#total_records {
+    color: #f00;
+}
+
+/* ----- student edit ----- */
+.my-edit-form div label {
+    width: 10%;
+    display: inline-block;
+}
+
+/* ----- teacher list ----- */
+/*.teacher-list table {
+    border-collapse: collapse;
+}
+
+.teacher-list table th, table td {
+    border: 1px solid #000;
+}*/

@@ -8,8 +8,9 @@
         private $nameField = 'fullname';
         private $birthdateField = 'birthdate';
         private $genderField = 'gender';
-        private $classField = 'khoa';
+        private $classField = 'idkhoa';
         private $codeField = 'studentcode';
+        private $avatarField = 'avatar';
 
         /* ---------- Đã Optimize ---------- */
 
@@ -22,25 +23,21 @@
         }
 
         public function addStudent($data = array()) {
-            $sql = 'INSERT INTO tbl_student (studentcode, fullname, birthdate, gender, khoa ) VALUES (:studentcode, :fullname, :birthdate, :gender, :khoa)';
+            $column = array($this->codeField, $this->nameField, $this->birthdateField, $this->genderField, $this->classField, $this->avatarField);
 
-            parent::addRecord($sql, $data);
+            $sql = "INSERT INTO $this->tableName ( ". implode(', ', $column) . ' ) VALUES ( ' . implode(', ', array_map(array($this, 'returnQuestionMark'), $column)). ')';
+            $this->add_edit_Record($sql, $data);
         }
 
         public function editStudentInfo($id, $data = array()) {
             $studentRecord = $this->getRecordById($this->tableName, $this->idField, $id);
-
-            $sql = "UPDATE `$this->tableName` SET $this->codeField = :studentcode, $this->nameField = :fullname, $this->birthdateField = :birthdate, $this->genderField = :gender, $this->classField = :khoa WHERE $this->idField = :id";
-
-            parent::editRecord($sql, $data);
-
+            $sql = "UPDATE `$this->tableName` SET $this->codeField = :studentcode, $this->nameField = :fullname, $this->birthdateField = :birthdate, $this->genderField = :gender, $this->classField = :khoa, $this->avatarField = :avatar WHERE $this->idField = :id";
+            $this->add_edit_Record($sql, $data);
             return $studentRecord;
         }
 
-        // TODO: Finish Sort list
         public function sortStudent($col, $type) {
-            return $this->sortRecord("*", $this->tableName, $col, $type);
-
+            return $this->sortRecord('*', $this->tableName, $col, $type);
         }
 
         public function getTableName() {
@@ -58,6 +55,6 @@
         public function getClassField() {
             return $this->classField;
         }
-        
+
     }
 ?>

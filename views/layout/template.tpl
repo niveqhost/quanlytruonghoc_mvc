@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>{block name=title}Default Page Title{/block}</title>
+    <title>{block name=title}Trang chủ{/block}</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/admin/css/sb-admin-2.css">
@@ -19,9 +19,6 @@
     <!---------- Multi Tag Input------------------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput-typeahead.css">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div id="wrapper">
@@ -30,7 +27,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php?controller=admin&action=studentlist">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php?controller=student&action=studentlist">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -51,8 +48,8 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="index.php?controller=admin&action=studentlist">Danh sách sinh viên</a>
-            <a class="collapse-item" href="index.php?controller=admin&action=addstudent">Thêm sinh viên</a>
+            <a class="collapse-item" href="index.php?controller=student&action=studentlist">Danh sách sinh viên</a>
+            <a class="collapse-item" href="index.php?controller=student&action=addstudent">Thêm sinh viên</a>
           </div>
         </div>
       </li>
@@ -61,12 +58,12 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-chalkboard-teacher"></i>
-          <span>Quản lý giáo viên</span>
+          <span>Quản lý giảng viên</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="index.php?controller=admin&action=teacherlist">Danh sách giảng viên</a>
-            <a class="collapse-item" href="index.php?controller=admin&action=addteacher">Thêm giảng viên</a>
+            <a class="collapse-item" href="index.php?controller=teacher&action=teacherlist">Danh sách giảng viên</a>
+            <a class="collapse-item" href="index.php?controller=teacher&action=addteacher">Thêm giảng viên</a>
           </div>
         </div>
       </li>
@@ -271,6 +268,7 @@
 	<script src="assets/js/bootstrap.min.js"></script>
 	<!-- Bootstrap core JavaScript-->
 	<script src="assets/admin/vendor/jquery/jquery.min.js"></script>
+{*    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>*}
 	<script src="assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
@@ -280,6 +278,10 @@
 	<script src="assets/admin/js/sb-admin-2.min.js"></script>
 
 	<!-- Page level custom scripts -->
-	<script src="assets/admin/js/custom.js"></script>
+    <script src="assets/admin/js/custom.js"></script>
+{*    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>*}
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
