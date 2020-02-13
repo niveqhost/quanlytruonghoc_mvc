@@ -27,6 +27,7 @@
                             </tr>
                         </thead>
                         <tbody>
+{*                        Bắt đầu hiển thị dữ liệu ở đây*}
                             {foreach from=$allStudents item=student}
                                 <tr>
                                     <td><img src="assets/images/student-img/{$student.avatar}" alt="Student Avatar"></td>
