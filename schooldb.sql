@@ -1,103 +1,84 @@
--- phpMyAdmin SQL Dump
--- version 4.9.2
--- https://www.phpmyadmin.net/
---
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 23, 2019 lúc 12:03 PM
--- Phiên bản máy phục vụ: 10.4.10-MariaDB
--- Phiên bản PHP: 7.3.12
+/*
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
+ Source Server         : MySQLConnection
+ Source Server Type    : MySQL
+ Source Server Version : 100410
+ Source Host           : localhost:3306
+ Source Schema         : schooldb
 
+ Target Server Type    : MySQL
+ Target Server Version : 100410
+ File Encoding         : 65001
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+ Date: 13/02/2020 17:45:05
+*/
 
---
--- Cơ sở dữ liệu: `schooldb`
---
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Table structure for tbl_giaovien
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_giaovien`;
+CREATE TABLE `tbl_giaovien`  (
+  `giaovienid` int(11) NOT NULL AUTO_INCREMENT,
+  `tengiaovien` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `bomon` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `ngaysinh` date NULL DEFAULT NULL,
+  `gioitinh` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `anhdaidien` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  PRIMARY KEY (`giaovienid`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Cấu trúc bảng cho bảng `tbl_giaovien`
---
+-- ----------------------------
+-- Records of tbl_giaovien
+-- ----------------------------
+INSERT INTO `tbl_giaovien` VALUES (2, 'Lê Thục Anh', 'Văn', '1995-03-04', 'Nữ', 'max-ilienerwise-YvWJOXHNJ94-unsplash.jpg');
+INSERT INTO `tbl_giaovien` VALUES (3, 'Trần Hoài Thanh', 'Quân Sự', '1976-09-22', 'Nam', 'john-jackson-acyXkBqJlCQ-unsplash.jpg');
+INSERT INTO `tbl_giaovien` VALUES (5, 'Nguyễn Phương Linh', 'Vật Lý', '1988-12-15', 'Nữ', 'guilherme-stecanella-_dH-oQF9w-Y-unsplash.jpg');
+INSERT INTO `tbl_giaovien` VALUES (9, 'Trần Tuấn Kiệt', 'Văn', '2020-02-06', 'Nam', 'lachlan-dempsey-6VPEOdpFNAs-unsplash.jpg');
+INSERT INTO `tbl_giaovien` VALUES (10, 'Đinh Tuấn Anh', 'Vật Lý', '1991-02-19', 'Nam', 'reza-biazar-eSjmZW97cH8-unsplash.jpg');
 
-CREATE TABLE `tbl_giaovien` (
-  `giaovienID` int(11) NOT NULL,
-  `magiaovien` varchar(100) NOT NULL,
-  `tengiaovien` varchar(100) NOT NULL,
-  `bomon` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- ----------------------------
+-- Table structure for tbl_khoa
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_khoa`;
+CREATE TABLE `tbl_khoa`  (
+  `idkhoa` int(10) NOT NULL AUTO_INCREMENT,
+  `tenkhoa` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ngaythanhlap` date NULL DEFAULT NULL,
+  PRIMARY KEY (`idkhoa`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_giaovien`
---
+-- ----------------------------
+-- Records of tbl_khoa
+-- ----------------------------
+INSERT INTO `tbl_khoa` VALUES (1, 'CNTT', NULL);
+INSERT INTO `tbl_khoa` VALUES (2, 'Công trình', NULL);
+INSERT INTO `tbl_khoa` VALUES (3, 'Cầu đường', NULL);
+INSERT INTO `tbl_khoa` VALUES (4, 'Cơ khí', NULL);
+INSERT INTO `tbl_khoa` VALUES (5, 'Xây dựng', NULL);
 
-INSERT INTO `tbl_giaovien` (`giaovienID`, `magiaovien`, `tengiaovien`, `bomon`) VALUES
-(1, 'gv01', 'Đào Thị Ánh', 'Văn');
+-- ----------------------------
+-- Table structure for tbl_student
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_student`;
+CREATE TABLE `tbl_student`  (
+  `studentid` int(10) NOT NULL AUTO_INCREMENT,
+  `studentcode` int(11) NOT NULL,
+  `fullname` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `birthdate` date NOT NULL,
+  `gender` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `idkhoa` int(10) NOT NULL,
+  `avatar` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`studentid`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 47 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of tbl_student
+-- ----------------------------
+INSERT INTO `tbl_student` VALUES (2, 161912345, 'Đinh Ngọc Ánh', '2020-01-22', 'Nữ', 1, 'azamat-zhanisov-rtzN1TGIGWc-unsplash.jpg');
+INSERT INTO `tbl_student` VALUES (27, 181513123, 'Nguyễn Văn Thảo', '1996-08-05', 'Nam', 1, 'harishan-kobalasingam-8PMvB4VyVXA-unsplash.jpg');
+INSERT INTO `tbl_student` VALUES (39, 15975364, 'Nguyễn Anh Quyền', '2020-02-22', 'Nữ', 1, 'lachlan-dempsey-6VPEOdpFNAs-unsplash.jpg');
 
---
--- Cấu trúc bảng cho bảng `tbl_hocsinh`
---
-
-CREATE TABLE `tbl_hocsinh` (
-  `hsID` int(11) NOT NULL,
-  `mahs` varchar(100) NOT NULL,
-  `tenhs` varchar(100) NOT NULL,
-  `lop` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_hocsinh`
---
-
-INSERT INTO `tbl_hocsinh` (`hsID`, `mahs`, `tenhs`, `lop`) VALUES
-(21, 'hs21', 'Nguyễn Phương Thảo', '11A3'),
-(26, 'hs22', 'Ngô Phương Tâm', '5A'),
-(30, 'hs30', 'An Nhiên', '12G3'),
-(32, 'hs26', 'Cris Phạm', 'Chuyên Địa');
-
---
--- Chỉ mục cho các bảng đã đổ
---
-
---
--- Chỉ mục cho bảng `tbl_giaovien`
---
-ALTER TABLE `tbl_giaovien`
-  ADD PRIMARY KEY (`giaovienID`);
-
---
--- Chỉ mục cho bảng `tbl_hocsinh`
---
-ALTER TABLE `tbl_hocsinh`
-  ADD PRIMARY KEY (`hsID`);
-
---
--- AUTO_INCREMENT cho các bảng đã đổ
---
-
---
--- AUTO_INCREMENT cho bảng `tbl_giaovien`
---
-ALTER TABLE `tbl_giaovien`
-  MODIFY `giaovienID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT cho bảng `tbl_hocsinh`
---
-ALTER TABLE `tbl_hocsinh`
-  MODIFY `hsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+SET FOREIGN_KEY_CHECKS = 1;
